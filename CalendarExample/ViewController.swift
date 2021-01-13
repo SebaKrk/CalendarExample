@@ -15,12 +15,24 @@ class ViewController: UIViewController {
     let eventStore = EKEventStore()
     var time = Date()
     
+    var calendarView:FSCalendar = FSCalendar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         setUpItemBarController()
+        setupCalendar()
     
+    }
+    
+    func setupCalendar() {
+        view.addSubview(calendarView)
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        calendarView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        calendarView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        calendarView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        calendarView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     func setUpItemBarController() {
