@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     }
     
     func setupCalendar() {
+        calendarView.delegate = self
+        
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         calendarView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -68,6 +70,12 @@ extension ViewController: EKEventEditViewDelegate {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ViewController: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("selected")
     }
 }
 
