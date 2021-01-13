@@ -25,10 +25,12 @@ class ViewController: UIViewController {
                     event.startDate = self.time
                     event.url = URL(string: "https://apple.com")
                     event.endDate = self.time
+                    
                     let eventController = EKEventEditViewController()
                     eventController.event = event
                     eventController.eventStore = self.eventStore
                     eventController.editViewDelegate = self
+                    
                     self.present(eventController, animated: true, completion: nil)
                     
                 }
